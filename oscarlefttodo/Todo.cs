@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace oscarlefttodo
 {
@@ -9,6 +10,7 @@ namespace oscarlefttodo
 
 
         public List<Task> taskList = new List<Task>();
+        public List<Task> archivedTaskList = new List<Task>();
         public void TodoMeny()
         {
 
@@ -26,7 +28,7 @@ namespace oscarlefttodo
                 Console.WriteLine("***********");
                 Console.WriteLine(" 2: Create a new task");
                 Console.WriteLine("***********");
-                Console.WriteLine(" 3: Archive completed tasks");
+                Console.WriteLine(" 3: Archive all your completed tasks");
                 Console.WriteLine("***********");
                 Console.WriteLine(" 4: List archived tasks");
                 Console.WriteLine("***********");
@@ -86,7 +88,29 @@ namespace oscarlefttodo
 
         public void ArchiveCompletedTasks()
         {
-            throw new NotImplementedException();
+
+            int noCompletedTask = 0;
+
+            foreach (var item in taskList)
+            {
+
+                if (item.Completed == true)
+                {
+                    item.Archived = true;
+                    System.Console.WriteLine("You have archived this task: " + item.NameOfTask1);
+                    archivedTaskList.Add(item);
+                    noCompletedTask++;
+                }
+                
+                
+            }
+            taskList.RemoveAll((x) => x.Archived == true);
+
+            if (noCompletedTask == 0)
+            {
+                System.Console.WriteLine("You didnt have any completed task to archive, dont be lazy, do your task!");
+            }
+
         }
 
         public void CreateNewTask()
@@ -161,10 +185,12 @@ namespace oscarlefttodo
                         Console.Clear();
                         System.Console.WriteLine("You have changed the status of the task"); 
                         item.Completed = !item.Completed;
+                        System.Console.WriteLine();
                         break;
                     case 2:
                         Console.Clear();
                         System.Console.WriteLine("You didnt change the current status"); 
+                        System.Console.WriteLine();
                         break;
 
                     default:
