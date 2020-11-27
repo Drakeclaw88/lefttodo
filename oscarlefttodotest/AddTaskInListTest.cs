@@ -13,15 +13,22 @@ namespace oscarlefttodotest
         {
 
             //arrange
+            int emptyOrNot;
              List<Task> testTaskList = new List<Task>();
             Task testTask = new Task("", "");
+            Task testTaskTwo = new Task("", "");
 
             //act
             
             testTaskList.Add(testTask);
+            testTaskList.Add(testTaskTwo);
+            emptyOrNot = testTaskList.Count;
+            var expected = 2;
+            var actual = emptyOrNot;
 
 
             //assert
+            Assert.Equal(expected,actual);
 
         }
     }

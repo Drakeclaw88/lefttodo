@@ -13,12 +13,10 @@ namespace oscarlefttodotest
         {
 
             //arrange
-             List<Task> testTaskList = new List<Task>();
-            Task testTask = new Task("", "");
+
 
             //act
             
-            testTaskList.Add(testTask);
 
 
             //assert

@@ -145,6 +145,7 @@ namespace oscarlefttodo
 
             foreach (var item in taskList)
             {
+              int empy =  taskList.Count;
                 System.Console.WriteLine();
                 System.Console.WriteLine("Name of task: " + item.NameOfTask1);
 
