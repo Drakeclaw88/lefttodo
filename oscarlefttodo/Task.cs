@@ -3,7 +3,7 @@ using System;
 namespace oscarlefttodo
 {
 
-    class Task
+    public class Task
     {
 
 
