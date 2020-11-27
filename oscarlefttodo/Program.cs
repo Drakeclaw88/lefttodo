@@ -17,6 +17,8 @@ namespace oscarlefttodo
             System.Console.WriteLine("Easy and simple right?");
             System.Console.WriteLine("If You understand then press any key to continue");
             Console.ReadKey();
+
+            myTodo.TodoMeny();
             
 
 
