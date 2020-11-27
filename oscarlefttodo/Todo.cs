@@ -159,11 +159,12 @@ namespace oscarlefttodo
 
                     case 1:
                         Console.Clear();
-                        System.Console.WriteLine("changed"); ;
+                        System.Console.WriteLine("You have changed the status of the task"); 
+                        item.Completed = !item.Completed;
                         break;
                     case 2:
                         Console.Clear();
-                        System.Console.WriteLine("Keep"); ;
+                        System.Console.WriteLine("You didnt change the current status"); 
                         break;
 
                     default:
