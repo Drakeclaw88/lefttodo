@@ -83,7 +83,15 @@ namespace oscarlefttodo
 
         public void ListAllArchivedTasks()
         {
-            throw new NotImplementedException();
+            System.Console.WriteLine("Here is a list of all the task that you have move too the archive");
+            System.Console.WriteLine();
+            foreach (var item in archivedTaskList)
+            {
+                System.Console.WriteLine("Name of task: " + item.NameOfTask1);
+                System.Console.WriteLine("Description of task: " + item.Description1);
+                System.Console.WriteLine();
+                
+            }
         }
 
         public void ArchiveCompletedTasks()
@@ -101,8 +109,7 @@ namespace oscarlefttodo
                     archivedTaskList.Add(item);
                     noCompletedTask++;
                 }
-                
-                
+  
             }
             taskList.RemoveAll((x) => x.Archived == true);
 
