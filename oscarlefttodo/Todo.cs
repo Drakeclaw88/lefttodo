@@ -13,9 +13,6 @@ namespace oscarlefttodo
         {
 
 
-
-
-
             Console.WriteLine("Please choose one of these options");
             Console.WriteLine("Write one of these numbers that correspond to your option");
 
@@ -35,8 +32,6 @@ namespace oscarlefttodo
                 Console.WriteLine("***********");
                 Console.WriteLine(" 0: Close the program");
 
-                // This loop of exceptions handling was really good to find out about, makes the program so much smoother when it runs,
-                // i used this for all exception handling in the code.
                 bool loop = true;
 
                 do
@@ -96,15 +91,15 @@ namespace oscarlefttodo
 
         public void CreateNewTask()
         {
-            string taskName;
-            string descriptionOfTask;
+            string taskNameFromUser;
+            string descriptionOfTaskFromUser;
 
             System.Console.WriteLine("What name do you want to give your task? ");
-            taskName = Console.ReadLine();
+            taskNameFromUser = Console.ReadLine();
             System.Console.WriteLine("Write a short description of your task");
-            descriptionOfTask = Console.ReadLine();
+            descriptionOfTaskFromUser = Console.ReadLine();
 
-            taskList.Add(new Task(taskName,descriptionOfTask));
+            taskList.Add(new Task(taskNameFromUser, descriptionOfTaskFromUser));
 
 
         }
@@ -112,14 +107,70 @@ namespace oscarlefttodo
         public void ListAllTasks()
         {
 
-            
+            System.Console.WriteLine("You will now see a list of all the task that you have created ");
+            System.Console.WriteLine("After that we will go through them one and one and you can change the task status if you want ");
+
+
+            foreach (var item in taskList)
+            {
+                System.Console.WriteLine();
+                System.Console.WriteLine("Name of task: " + item.NameOfTask1);
+
+                System.Console.WriteLine("Description of task: " + item.Description1);
+
+                if (item.Completed == false)
+                {
+                    System.Console.WriteLine("Task status: Task have NOT been completed  [x]");
+                }
+                else
+                {
+                    System.Console.WriteLine("Task status: Task have BEEN been completed  [✓]");
+                }
+
+            }
+
+            System.Console.WriteLine("Press any key to if you are ready to proceed");
+            Console.ReadKey();
+            Console.Clear();
 
             foreach (var item in taskList)
             {
 
-                System.Console.WriteLine(item.NameOfTask1);
-                System.Console.WriteLine(item.Description1);
-                System.Console.WriteLine(item.Description1);
+                System.Console.WriteLine("Name of task: " + item.NameOfTask1);
+                if (item.Completed == false)
+                {
+                    System.Console.WriteLine("Task status: Task have NOT been completed  [x]");
+                }
+                else
+                {
+                    System.Console.WriteLine("Task status: Task have BEEN been completed  [✓]");
+                }
+                System.Console.WriteLine();
+                System.Console.WriteLine("Do you want to change status? Write 1 or 2 depending on your option");
+                Console.WriteLine(" 1: Yes! I want to change the status of the task");
+                Console.WriteLine("***********");
+                Console.WriteLine(" 2: No! I want to keep the status of the task");
+                Console.WriteLine("***********");
+
+                int options = Convert.ToInt32(Console.ReadLine());
+
+                switch (options)
+                {
+
+                    case 1:
+                        Console.Clear();
+                        System.Console.WriteLine("changed"); ;
+                        break;
+                    case 2:
+                        Console.Clear();
+                        System.Console.WriteLine("Keep"); ;
+                        break;
+
+                    default:
+                        WrongOption();
+                        break;
+                }
+
 
             }
 
